@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bubble Factory Test Lab</title>
+
+</head>
+<body>
+<p id="bubble-report"></p>
+
+
+<script>
+    let scores = [60, 50, 60, 58, 54, 54,
+        58, 50, 52, 54, 48, 69,
+        34, 55, 51, 52, 44, 51,
+        69, 64, 66, 55, 52, 61,
+        46, 31, 57, 52, 44, 18,
+        41, 53, 55, 61, 51, 44];
+
+    let costs = [.25, .27, .25, .25, .25, .25,
+        .33, .31, .25, .29, .27, .22,
+        .31, .25, .25, .33, .21, .25,
+        .25, .25, .28, .25, .24, .22,
+        .20, .25, .30, .25, .24, .25,
+        .25, .25, .27, .25, .26, .29];
+
+    let bestScores;
+    let highestScore;
+
+    function printToHTML(output) {
+        document.getElementById("bubble-report").innerHTML += output;
+    }
+
+    function printAndGetHighestScore(scores) {
+        let highestScore = 0;
+        let output;
+        for (let i = 0; i < scores.length; i++) {
+            output = "Bubble solution #" + i +
+                " score: " + scores[i] + " cost: " + costs[i] + "<br>";
+            printToHTML(output);
+            if (scores[i] > highestScore) {
+                highestScore = scores[i];
+            }
+        }
+        return highestScore;
+    }
+
+    function findAllOfValue(value, array) {
+        let result = [];
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === value) {
+                result.push(i);
+            }
+        }
+
+        return result;
+    }
+
+    function findLowestCost(best,costs){
+        let lowest = 100;
+        let solutionNumber;
+        for (let i = 0; i < best.length; i++) {
+            if(costs[best[i]] < lowest){
+                lowest = costs[best[i]];
+                solutionNumber = best[i];
+            }
+        }
+        return solutionNumber;
+    }
+
+    highestScore = printAndGetHighestScore(scores);
+
+    document.getElementById("bubble-report").innerHTML += "Bubble scores: " + scores.length + "<br>";
+    document.getElementById("bubble-report").innerHTML += "The highest score is "
+        + highestScore + "<br>";
+
+    bestScores = findAllOfValue(highestScore, scores);
+    document.getElementById("bubble-report").innerHTML += "Solutions with highest scores are: ";
+    console.log(bestScores);
+
+    for (let i = 0; i < bestScores.length; i++) {
+        document.getElementById("bubble-report").innerHTML += "#" + bestScores[i] + " <br>";
+    }
+
+    document.getElementById("bubble-report").innerHTML += "The lowest cost bubble solution is: #"
+        + findLowestCost(bestScores,costs);
+
+
+
+</script>
+</body>
+</html>
