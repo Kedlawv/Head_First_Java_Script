@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<h1>Arrays</h1>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p>JS Arrays are Heterogeneous </p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+
+<script>
+    let array = [1,2,3];
+    document.getElementById("demo").innerHTML = array[0] + ": value at index 0";
+
+
+    array[0] = 33;
+    document.getElementById("demo1").innerHTML = array[0] + ": after reassignment value at index 0";
+    document.getElementById("demo2").innerHTML = "array is " + array.length + " elements long" + "<br><br>";
+
+    let heteroArray = [1,2,"string",3,true];
+    heteroArray.forEach(displayItem);
+    function displayItem(item, index) {
+        document.getElementById("demo3").innerHTML += "Item: " + item + " at index: " + index + "<br>";
+    }
+
+    let outOfBounds = array[5];
+    document.getElementById("demo4").innerHTML = "ArrayOutOfBounds returns " + outOfBounds + "<br><br>";
+
+
+</script>
+
+</body>
+</html>
