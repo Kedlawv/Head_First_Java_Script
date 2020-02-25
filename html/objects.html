@@ -12,6 +12,8 @@
 <p id="objects2"></p>
 <h2>Remove a property from the object</h2>
 <p id="objects3"></p>
+<h2>Method call </h2>
+<p id="objects4"></p>
 
 
 
@@ -19,7 +21,10 @@
     let computer = {
         cpu: "intel",
         hdd: "seagate",
-        graphics: "nVidia"
+        graphics: "nVidia",
+        compute: function(){
+            return "0010101010001000";
+        }
     };
 
     printObjectProperties(computer,"objects");
@@ -29,6 +34,8 @@
 
     delete computer.cpu;
     printObjectProperties(computer,"objects3");
+
+    document.getElementById("objects4").innerHTML = computer.compute();
 
 
 
