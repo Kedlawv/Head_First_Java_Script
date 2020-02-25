@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bubble Factory Test Lab</title>
+
+</head>
+<body>
+<h2>Simple object creation</h2>
+<p id="objects"></p>
+<h2>Add property to the object</h2>
+<p id="objects2"></p>
+<h2>Remove a property from the object</h2>
+<p id="objects3"></p>
+
+
+
+<script>
+    let computer = {
+        cpu: "intel",
+        hdd: "seagate",
+        graphics: "nVidia"
+    };
+
+    printObjectProperties(computer,"objects");
+
+    computer.ram = "DDR";
+    printObjectProperties(computer,"objects2");
+
+    delete computer.cpu;
+    printObjectProperties(computer,"objects3");
+
+
+
+
+
+
+    function printObjectProperties(object,element){
+        for(let propName in object){
+            document.getElementById(element).innerHTML += propName + " : " + object[propName] + "<br>";
+        }
+    }
+
+</script>
+</body>
+</html>
