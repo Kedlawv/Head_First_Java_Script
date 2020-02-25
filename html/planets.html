@@ -6,11 +6,19 @@
 
     <script>
         function init(){
-            document.getElementById("green-planet").innerHTML = "Alert. Hit by phaser fire";
+            let greenPlanet = document.getElementById("green-planet");
+            greenPlanet.innerHTML = "Alert. Hit by phaser fire";
+            greenPlanet.setAttribute("class","redtext");
         }
 
         window.onload = init;
     </script>
+
+    <style>
+        .redtext {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 
