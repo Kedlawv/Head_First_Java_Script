@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Equality</title>
+</head>
+<body>
+<h2>Equality tests</h2>
+<p id="tests"></p>
+
+<h2>Operator Conversions</h2>
+<p id="operators"></p>
+
+<script>
+    let test1 = 99 == "99";
+    let test2 = 99 === "99";
+    let test3 = 99 == "boom";
+
+    let test4 = true == 1;
+    let test5 = true == "1";
+    let test6 = true === 1;
+    let test6b = false == "";
+    let test6c = true == "true";
+
+    let test7 = undefined == null;
+    let test8 = undefined === null;
+
+    let test9 = 99 <= "100"; // same rules as with == | there is no strict version of <,>
+    let test10 = false != 0;
+    let test11 = false !== 0; // strict not equals
+    let test12 = "banana" < "mango";  // inequality of strings is based on alphabetical order in Unicode
+
+    let paragraph = document.getElementById("tests");
+
+    paragraph.innerHTML += "99 == '99' is => " + test1 + "</br>";
+    paragraph.innerHTML += "99 === '99' is => " + test2 + "</br>";
+    paragraph.innerHTML += "99 == 'boom' is => " + test3 + "</br>" + "</br>";
+
+    paragraph.innerHTML += "true == 1 is => " + test4 + "</br>";
+    paragraph.innerHTML += "true == '1' is => " + test5 + "</br>";
+    paragraph.innerHTML += "true === 1 is => " + test6 + "</br>";
+    paragraph.innerHTML += "false == ' ' is => " + test6b + "</br>";
+    paragraph.innerHTML += "true == 'true' is => " + test6c + "</br>" + "</br>";
+
+    paragraph.innerHTML += "undefined == null is => " + test7 + "</br>";
+    paragraph.innerHTML += "undefined === null is => " + test8 + "</br>" + "</br>";
+
+    paragraph.innerHTML += "99 <= '100' is => " + test9 + "</br>";
+    paragraph.innerHTML += "false != 0 is => " + test10 + "</br>";
+    paragraph.innerHTML += "false !== 0 is => " + test11 + "</br>";
+    paragraph.innerHTML += "'banana' < 'mango' is => " + test12 + "</br>";
+
+    let test13 = 1 + "1"; // addition always results in a string
+    let test14 = 3 * "5"; // any other arithmetic operator will convert a string in to a number 
+
+    let paragraph2 = document.getElementById("operators");
+
+    paragraph2.innerHTML += "1 + '1' is => " + test13 + "</br>";
+    paragraph2.innerHTML += "3 * '5' is => " + test14 + "</br>";
+
+</script>
+</body>
+</html>
