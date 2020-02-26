@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>typeof</title>
+</head>
+<body>
+<h2>typeof tests</h2>
+<p id="tests"></p>
+
+<script>
+    var test1 = "abcdef";
+    var test2 = 123;
+    var test3 = true;
+    var test4 = {};
+    var test5 = [];
+    var test6;
+    var test7 = {"abcdef": 123};
+    var test8 = ["abcdef", 123];
+
+    function test9() {
+        return "abcdef"
+    };
+
+
+    document.getElementById("tests").innerHTML += test1 + " ----> " + (typeof test1) + "</br>";
+    document.getElementById("tests").innerHTML += test2 + " ----> " + (typeof test2) + "</br>";
+    document.getElementById("tests").innerHTML += test3 + " ----> " + (typeof test3) + "</br>";
+    document.getElementById("tests").innerHTML += "{} " + test4 + " ----> " + (typeof test4) + "</br>";
+    document.getElementById("tests").innerHTML += "[] " +test5 + " ----> " + (typeof test5) + "</br>";
+    document.getElementById("tests").innerHTML += test6 + " ----> " + (typeof test6) + "</br>";
+    document.getElementById("tests").innerHTML += test7 + " ----> " + (typeof test7) + "</br>";
+    document.getElementById("tests").innerHTML += test8 + " ----> " + (typeof test8) + "</br>";
+    document.getElementById("tests").innerHTML += test9 + " ----> " + (typeof test9) + "</br>";
+</script>
+</body>
+</html>
