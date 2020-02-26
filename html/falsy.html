@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Falsy Truthy</title>
+</head>
+<body>
+<h2>'Falsy', evaluates as false but is not false</h2>
+<p id="tests"></p>
+<h2>Everything else is 'truthy' and will evaluate to true</h2>
+<script>
+    let uninitializedVariable;
+    let zero = 0;
+    let emptyString = "";
+    let nullObject = null;
+
+    let paragraph = document.getElementById("tests");
+
+    if (!uninitializedVariable) {
+        paragraph.innerHTML += "Uninitialized variable is undefined and evaluates to false </br>";
+    }
+
+    if (!zero) {
+        paragraph.innerHTML += "Zero evaluates to false </br>";
+    }
+
+    if (!emptyString) {
+        paragraph.innerHTML += "Empty string evaluates to false </br>";
+    }
+
+    if (!nullObject) {
+        paragraph.innerHTML += "null evaluates to false </br>";
+    }
+
+    if(!0/0){
+        paragraph.innerHTML += "NaN evaluates to false </br>";
+    }
+
+
+</script>
+</body>
+</html>
