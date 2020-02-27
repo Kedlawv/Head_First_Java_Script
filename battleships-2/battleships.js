@@ -65,8 +65,8 @@ let controller = {
         let location = this.parseGuess(guess);
 
         if (location) {
-            this.guesses++
-            let hit = model.fire(guess);
+            this.guesses++;
+            let hit = model.fire(location);
             if (hit && model.shipsSunk === model.numShips) {
                 view.displayMessage("Well done Cap! You sunk all of my ships in "
                     + this.guesses + " guesses.")
@@ -97,6 +97,17 @@ let controller = {
         return null;
     }
 };
+
+controller.processGuess("A0");
+controller.processGuess("A6");
+controller.processGuess("B6");
+controller.processGuess("C6");
+controller.processGuess("C4");
+controller.processGuess("D4");
+controller.processGuess("E4");
+controller.processGuess("B0");
+controller.processGuess("B1");
+controller.processGuess("B2");
 
 
 
