@@ -62,8 +62,9 @@ let controller = {
     guesses: 0,
 
     processGuess: function (guess) {
-        let location = this.parseGuess(guess);
 
+        let location = this.parseGuess(guess);
+        console.log(location);
         if (location) {
             this.guesses++;
             let hit = model.fire(location);
@@ -75,6 +76,7 @@ let controller = {
     },
 
     parseGuess: function (guess) {
+
         let alphabet = ["A", "B", "C", "D", "E", "F", "G"];
 
         if (guess === null || guess.length !== 2) {
@@ -89,7 +91,7 @@ let controller = {
                 alert("Oops, that is not on the board");
             } else if (row < 0 || column < 0
                 || row >= model.boardSize || column >= model.boardSize) {
-                alert("Nice shooting matey, that of the board!")
+                alert("Nice shooting matey, that is of the board!");
             } else {
                 return row + column;
             }
@@ -98,16 +100,17 @@ let controller = {
     }
 };
 
-controller.processGuess("A0");
-controller.processGuess("A6");
-controller.processGuess("B6");
-controller.processGuess("C6");
-controller.processGuess("C4");
-controller.processGuess("D4");
-controller.processGuess("E4");
-controller.processGuess("B0");
-controller.processGuess("B1");
-controller.processGuess("B2");
+function init(){
+    let fireButton = document.getElementById("fireButton");
+    fireButton.onclick = handleFireButton;
+}
+
+function handleFireButton(){
+    let guess = document.getElementById("guessInput").value;
+    controller.processGuess(guess.toUpperCase());
+}
+
+window.onload = init;
 
 
 
