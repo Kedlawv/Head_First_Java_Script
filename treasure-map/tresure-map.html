@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Treasure Map</title>
+    <script>
+        window.onload = init;
+        function init(){
+            document.getElementById("map").onmousemove = showCoords;
+        }
+        
+        function showCoords(eventObj){
+            document.getElementById("coords").innerHTML = "<h2>Coordinates: " + eventObj.pageX
+                + " , " + eventObj.pageY + "</h2>";
+        }
+    </script>
+</head>
+<body>
+    <img id="map" src="map.jpg">
+    <p id="coords">Move mouse to find coordinates</p>
+</body>
+</html>
