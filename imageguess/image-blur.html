@@ -25,6 +25,12 @@
         function showAnswer(eventObj) {
             let image = eventObj.target;
             image.src = "img/" + image.id + ".jpg";
+            setTimeout(blur, 1000, eventObj)
+        }
+        
+        function blur(eventObj){
+            let image = eventObj.target;
+            image.src = "img/" + image.id + "blur" + ".jpg";
         }
     </script>
 </head>
