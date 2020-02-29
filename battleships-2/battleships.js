@@ -32,6 +32,10 @@ var model = {
         for (let i = 0; i < this.numShips; i++) {
             let ship = this.ships[i];
             let index = ship.locations.indexOf(guess);
+            if(ship.hits[index] === "hit"){
+                view.displayMessage("You already fired at this location Cap!")
+                return false;
+            }
             if (index >= 0) {
                 ship.hits[index] = "hit";
                 view.displayHit(guess);
