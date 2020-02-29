@@ -3,10 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Image Blur</title>
-    <style>body{margin: 20px;}</style>
-    <script></script>
+    <style>
+        body {
+            margin: 20px;
+        }
+        
+        img {
+            margin: 20px;
+        }
+    </style>
+    <script>
+        window.onload = init;
+
+        function init() {
+            let images = document.getElementsByTagName("img");
+            for (let i = 0; i < images.length; i++) {
+                images[i].onclick = showAnswer;
+            }
+        }
+
+        function showAnswer(eventObj) {
+            let image = eventObj.target;
+            image.src = "img/" + image.id + ".jpg";
+        }
+    </script>
 </head>
 <body>
     <img id="zero" src="img/zeroblur.jpg">
+    <img id="one" src="img/oneblur.jpg">
+    <img id="two" src="img/twoblur.jpg">
+    <img id="three" src="img/threeblur.jpg">
+    <img id="four" src="img/fourblur.jpg">
+    <img id="five" src="img/fiveblur.jpg">
 </body>
 </html>
