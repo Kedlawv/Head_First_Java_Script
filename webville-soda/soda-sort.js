@@ -18,6 +18,37 @@ function compareSoldAsc(prod1, prod2) {
     }
 }
 
+function compareNameAsc(prod1, prod2) {
+    if (prod1.name > prod2.name) {
+        return 1;
+    } else if (prod1.name < prod2.name) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+function compareCaloriesAsc(prod1, prod2) {
+    if (prod1.calories > prod2.calories) {
+        return 1;
+    } else if (prod1.calories < prod2.calories) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+function compareColorAsc(prod1, prod2) {
+    if (prod1.color > prod2.color) {
+        return 1;
+    } else if (prod1.color < prod2.color) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+
 function printProducts(products) {
     for (var i = 0; i < products.length; i++) {
         document.getElementById("products").innerHTML += ("Name: " + products[i].name +
@@ -25,9 +56,17 @@ function printProducts(products) {
             ", Color: " + products[i].color +
             ", Sold: " + products[i].sold) + "</br>";
     }
+    document.getElementById("products").innerHTML += "</br> -------------------------------</br>";
 }
 
 function init() {
     products.sort(compareSoldAsc);
     printProducts(products);
+    products.sort(compareNameAsc);
+    printProducts(products);
+    products.sort(compareCaloriesAsc);
+    printProducts(products);
+    products.sort(compareColorAsc);
+    printProducts(products);
+
 }
