@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bake Cookies</title>
+    <script>
+        window.onload = init;
+        let cookies = {
+            instructions: "Preheat oven to 350...",
+            bake: function(time) {
+                document.getElementById("info").innerHTML +="Baking the cookies.</br>";
+                setTimeout(done, time);
+            }
+        };
+        function init() {
+            let button = document.getElementById("bake");
+            button.onclick = () => {
+                document.getElementById("info").innerHTML += "Time to bake the cookies.</br>";
+                cookies.bake(2500);
+            };
+        }
+        
+        function done() {
+            alert("Cookies are ready, take them out to cool.");
+            document.getElementById("info").innerHTML +="Cooling the cookies.</br>";
+            
+            setTimeout(()=> {alert("Cookies are cool, time to eat!")}, 1000);
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input id="bake" type="button" value="Bake!">
+    </form>
+    <p id="info"></p>
+</body>
+</html>
