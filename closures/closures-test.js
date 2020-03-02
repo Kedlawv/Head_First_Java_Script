@@ -11,6 +11,18 @@ function getCounter(){
     }
 }
 
+function makeTimer(doneMessage,n){
+    setTimeout(()=> {alert(doneMessage)},n);
+}   // set timeout will hold on to the argument function together with the functions environment
+    // containing the free variables
+
+function makeTimerDynamicEn(doneMessage,n){
+    setTimeout(()=> alert(doneMessage),n);
+    doneMessage = "I have changed!"; // closure holds reference to the live variables not copies
+}   // if the variable contained in the closure is changed outside of the closure
+    // before the function in closure is invoked
+    // the function will use the changed value
+
 function init() {
     let para = document.getElementById("display");
     let pswdCheck = setPassword("secret");
@@ -24,4 +36,9 @@ function init() {
     para.innerHTML += "</br> counter(): " + counter();
     para.innerHTML += "</br> counter(): " + counter();
     para.innerHTML += "</br> counter(): " + counter();
+
+    para.innerHTML += "</br></br> makeTimerDynamicEn('I am the original message')";
+    makeTimerDynamicEn("I am the original message",1000);
+
+
 }
