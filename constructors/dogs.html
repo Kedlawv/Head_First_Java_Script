@@ -18,15 +18,21 @@
             let fluffy = new Dog("Fluffy", "Poodle", 30);   // an object just like Java
             let spot = new Dog("Spot", "Chihuahua", 10);
             let dogs = [fido, fluffy, spot];
-
+            let display = document.getElementById("display");
             for (var i = 0; i < dogs.length; i++) {
                 var size = "small";
                 if (dogs[i].weight > 10) {
                     size = "large";
                 }
-                document.getElementById("display").innerHTML += "</br>Dog: " + dogs[i].name
+                display.innerHTML += "</br>Dog: " + dogs[i].name
                     + " is a " + size + " " + dogs[i].breed;
             }
+            
+            display.innerHTML += "</br> typeof Dog: " + typeof Dog;
+            display.innerHTML += "</br> fido is typeof: " + (typeof fido);
+            display.innerHTML += "</br> fido is an instance of Dog: " + (fido instanceof Dog);
+            display.innerHTML += "</br> fido is an instance of? : " + (fido.constructor.name);
+            
         }
     </script>
 </head>
