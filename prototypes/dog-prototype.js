@@ -1,11 +1,11 @@
-function Dog(name, breed, weight) {
+function Dog(name, breed, weight) { // first we need a constructor
     this.name = name;
     this.breed = breed;
     this.weight = weight;
 }
 
-Dog.prototype.species = "Canine";
-Dog.prototype.bark = () => {
+Dog.prototype.species = "Canine";   // then we add properties to the prototype property object of the
+Dog.prototype.bark = () => {        // constructor
     if (this.weight > 25) {
         return "Woof";
     } else {
@@ -25,6 +25,10 @@ function init(){
     let fido = new Dog("Fido", "Mixed", 38);
     let fluffy = new Dog("Fluffy", "Poodle", 30);
     let spot = new Dog("Spot", "Chihuahua", 10);
+
+    spot.bark = ()=>{       // we can override the method, javascript always looks in the local scope
+        return "WOOF!!!!"   // first and if it doesn't find the method it look in the prototype
+    };
 
     display.innerHTML += fido.run() + "</br>";
     display.innerHTML += fido.wag() + "</br>";
