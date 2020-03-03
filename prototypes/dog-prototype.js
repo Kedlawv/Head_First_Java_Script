@@ -27,6 +27,8 @@ function ShowDog(name, breed, weight, handler) { // inheritance | we create a co
 }
 
 ShowDog.prototype = new Dog();  // we set prototype of the inheriting type to the parent type
+ShowDog.prototype.constructor = ShowDog; // we need to set the constructor type manually
+// code will work just fine without it but it will be confusing because ShowDog.constructor.name will return Dog 
 
 ShowDog.prototype.league = "Webville";  // we add properties specific to the child type
 
@@ -80,7 +82,9 @@ function init() {
     display.innerHTML += "scotty.hasOwnProperty('bark')" + scotty.hasOwnProperty("bark") + "</br>";
     display.innerHTML += "scotty.hasOwnProperty('bait')" + scotty.hasOwnProperty("bait") + "</br>";
     display.innerHTML += "scotty.hasOwnProperty('handler')" + scotty.hasOwnProperty("handler") + "</br>";
-    display.innerHTML += "scotty is an instanceof " + scotty.constructor.name + "</br>";
+    display.innerHTML += "scotty's constructor is " + scotty.constructor.name + "</br>";
+    display.innerHTML += "scotty is an instanceof ShowDog: " + (scotty instanceof ShowDog) + "</br>";
+    display.innerHTML += "scotty is an instanceof Dog: " + (scotty instanceof Dog) + "</br>";
 
 
 
