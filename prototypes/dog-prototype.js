@@ -20,15 +20,13 @@ Dog.prototype.run = () => {
 };
 
 function ShowDog(name, breed, weight, handler) { // inheritance | we create a constructor for the extending prototype
-    this.name = name;
-    this.breed = breed;
-    this.weight = weight;
-    this.handler = handler;
+    Dog.call(this,name,breed,weight); // call to the parent constructor , 'this' refers to the ShowDog object
+    this.handler = handler;            // like call to super in Java
 }
 
 ShowDog.prototype = new Dog();  // we set prototype of the inheriting type to the parent type
 ShowDog.prototype.constructor = ShowDog; // we need to set the constructor type manually
-// code will work just fine without it but it will be confusing because ShowDog.constructor.name will return Dog 
+// code will work just fine without it but it will be confusing because ShowDog.constructor.name will return Dog
 
 ShowDog.prototype.league = "Webville";  // we add properties specific to the child type
 
