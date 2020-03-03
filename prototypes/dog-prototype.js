@@ -5,7 +5,7 @@ function Dog(name, breed, weight) { // first we need a constructor
 }
 
 Dog.prototype.species = "Canine";   // then we add properties to the prototype property object of the
-Dog.prototype.bark = function() {        // constructor
+Dog.prototype.bark = function () {        // constructor
     if (this.weight > 25) {
         return this.name + " says Woof!";
     } else {
@@ -19,14 +19,40 @@ Dog.prototype.run = () => {
     return "Run!"
 };
 
-function init(){
+function ShowDog(name, breed, weight, handler) { // inheritance | we create a constructor for the extending prototype
+    this.name = name;
+    this.breed = breed;
+    this.weight = weight;
+    this.handler = handler;
+}
+
+ShowDog.prototype = new Dog();  // we set prototype of the inheriting type to the parent type
+
+ShowDog.prototype.league = "Webville";  // we add properties specific to the child type
+
+ShowDog.prototype.stack = function () {
+    return "Stack";
+};
+ShowDog.prototype.bait = function () {
+    return "Bait";
+};
+ShowDog.prototype.gait = function (kind) {
+    return kind + "ing";
+};
+ShowDog.prototype.groom = function () {
+    return "Groom";
+};
+
+function init() {
     let display = document.getElementById("display");
 
     let fido = new Dog("Fido", "Mixed", 38);
     let fluffy = new Dog("Fluffy", "Poodle", 30);
     let spot = new Dog("Spot", "Chihuahua", 10);
 
-    spot.bark = function(){    // we can override the method, javascript always looks in the local scope
+    let scotty = new ShowDog("Scotty", "Scottish Terrier", 15, "Cookie");
+
+    spot.bark = function () {    // we can override the method, javascript always looks in the local scope
         return this.name + " says WOOF!!!!" // first and if it doesn't find the method it look in
                                             // the prototype
     };
@@ -43,4 +69,19 @@ function init(){
     display.innerHTML += spot.run() + "</br>";
     display.innerHTML += spot.wag() + "</br>";
     display.innerHTML += spot.bark() + "</br></br>";
+
+    display.innerHTML += scotty.run() + "</br>";
+    display.innerHTML += scotty.wag() + "</br>";
+    display.innerHTML += scotty.bait() + "</br>";
+    display.innerHTML += scotty.handler + "</br>";
+    display.innerHTML += scotty.league + "</br>";
+    display.innerHTML += scotty.bark() + "</br></br>";
+
+    display.innerHTML += "scotty.hasOwnProperty('bark')" + scotty.hasOwnProperty("bark") + "</br>";
+    display.innerHTML += "scotty.hasOwnProperty('bait')" + scotty.hasOwnProperty("bait") + "</br>";
+    display.innerHTML += "scotty.hasOwnProperty('handler')" + scotty.hasOwnProperty("handler") + "</br>";
+    display.innerHTML += "scotty is an instanceof " + scotty.constructor.name + "</br>";
+
+
+
 }
