@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arguments Object</title>
+    
+    <script>
+        window.onload = function () {
+            printArgs();
+            printArgs("I'm undeclared", 1, true, {
+                name: "Zavala", toString: function () {
+                    return "name:" + this.name;
+                }
+            })
+        }
+
+        function printArgs() {
+            let display = document.getElementById("display");
+            if (arguments.length === 0) {
+                display.innerHTML += "<h2>printArgs was invoked without any arguments </h2></br>";
+            } else {
+                display.innerHTML += "<h2>printArgs was invoked with undeclared arguments: </h2></br>";
+                for (let i = 0; i < arguments.length; i++) {
+                    display.innerHTML += i + ": " + arguments[i] + " ---> " + (typeof arguments[i]) + "</br>";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <p id="display"></p>
+</body>
+</html>
